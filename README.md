@@ -4,6 +4,8 @@ Application web qui transforme les exports JSON du carnet de visite GTB en propo
 
 Le traitement est réalisé dans le navigateur : les données de visite et le PowerPoint généré ne sont pas envoyés à un serveur applicatif.
 
+Application publiée : <https://fbbbrand.github.io/europrod-propositions/>
+
 ## Utilisation par les équipes
 
 1. Ouvrir l’adresse partagée du générateur.
