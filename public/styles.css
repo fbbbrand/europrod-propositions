@@ -43,24 +43,9 @@ button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-
 .brand-logo { display: block; width: 205px; height: auto; }
 .top-status { color: var(--muted); font-size: 12px; }
 
-.workspace { max-width: 1440px; margin: 0 auto; display: grid; grid-template-columns: 230px minmax(0, 1fr); min-height: calc(100vh - 70px); }
-.rail { padding: 32px 22px; border-right: 1px solid var(--line); background: #eef0f1; }
-.rail-label, .eyebrow, .section-number { margin: 0; font-size: 11px; font-weight: 700; color: var(--muted); }
-.rail-label { color: #4e5962; }
-.rail ol { list-style: none; margin: 16px 0 0; padding: 0; display: grid; }
-.rail li { display: flex; gap: 11px; align-items: flex-start; padding: 12px 9px; color: var(--muted); }
-.rail li.active { background: #e2e8e8; color: var(--ink); }
-.rail li > span { width: 19px; height: 19px; border: 1px solid var(--line-strong); border-radius: 50%; display: grid; place-items: center; font-size: 10px; font-weight: 700; color: #59656d; flex: 0 0 auto; }
-.rail li.active > span { border-color: var(--teal); background: var(--teal); color: white; }
-.rail li div { display: grid; gap: 3px; }
-.rail li b { font-size: 13px; font-weight: 600; }
-.rail li small { font-size: 11px; color: #778189; line-height: 1.35; }
-.rail-note { margin-top: 36px; padding: 15px 12px; border-top: 1px solid var(--line-strong); display: grid; gap: 5px; }
-.rail-note span { color: var(--muted); font-size: 9px; letter-spacing: .08em; }
-.rail-note b { color: var(--ink); font-size: 13px; font-weight: 600; }
-.rail-note small { color: var(--muted); font-size: 11px; line-height: 1.4; }
-
-.content { width: 100%; max-width: 1060px; padding: 34px 40px 94px; min-width: 0; }
+.workspace { min-height: calc(100vh - 70px); }
+.eyebrow, .section-number { margin: 0; font-size: 11px; font-weight: 700; color: var(--muted); }
+.content { width: 100%; max-width: 1120px; margin: 0 auto; padding: 38px 40px 94px; min-width: 0; }
 .hero { padding-bottom: 24px; margin-bottom: 24px; border-bottom: 1px solid var(--line); }
 .eyebrow { color: var(--teal-dark); }
 .hero h1 { margin: 7px 0 8px; font-size: 32px; line-height: 1.15; letter-spacing: -.018em; color: var(--ink); font-weight: 650; }
@@ -132,9 +117,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shado
 .toast.show { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 980px) {
-  .workspace { grid-template-columns: 1fr; }
-  .rail { display: none; }
-  .content { margin: 0 auto; padding-top: 28px; }
+  .content { padding-top: 28px; }
 }
 
 @media (max-width: 680px) {

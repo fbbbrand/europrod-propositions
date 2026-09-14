@@ -1,5 +1,5 @@
-import { deriveProposalModel } from "/core/proposal-model.js";
-import { generateProposalInBrowser } from "/core/pptx-browser.js";
+import { deriveProposalModel } from "./core/proposal-model.js";
+import { generateProposalInBrowser } from "./core/pptx-browser.js";
 
 const state = {
   visit: null,
@@ -187,7 +187,7 @@ $("#clearButton").addEventListener("click", () => {
 
 $("#demoButton").addEventListener("click", async () => {
   try {
-    const response = await fetch("/assets/visite-demo.json");
+    const response = await fetch(new URL("./assets/visite-demo.json", import.meta.url));
     const demo = await response.json();
     await loadVisit(demo, "Visite_GTB_Demo.json");
     $("#price").value = "48600";
@@ -214,7 +214,7 @@ generateButton.addEventListener("click", async () => {
   generateButton.innerHTML = "<span>Génération en cours…</span><b>···</b>";
   $("#actionStatus").textContent = "Construction des 10 diapositives";
   try {
-    const templateResponse = await fetch("/assets/europrod-proposal-template.pptx");
+    const templateResponse = await fetch(new URL("./assets/europrod-proposal-template.pptx", import.meta.url));
     if (!templateResponse.ok) throw new Error("Le gabarit PowerPoint est indisponible.");
     const templateBytes = await templateResponse.arrayBuffer();
     const result = await generateProposalInBrowser({

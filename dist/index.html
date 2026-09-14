@@ -6,32 +6,17 @@
   <meta name="theme-color" content="#147f80">
   <title>Générateur de propositions | Europrod</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23081318'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%230ba9e0' stroke-width='8'/%3E%3Cpath d='M32 8v24h24' fill='none' stroke='%230ba9e0' stroke-width='8'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <header class="topbar">
     <a class="brand" href="#" aria-label="Europrod, générateur de propositions">
-      <img class="brand-logo" src="/assets/europrod-technologies.png" alt="Europrod Technologies">
+      <img class="brand-logo" src="./assets/europrod-technologies.png" alt="Europrod Technologies">
     </a>
     <div class="top-status">Générateur de propositions</div>
   </header>
 
   <main class="workspace">
-    <aside class="rail" aria-label="Étapes de préparation">
-      <p class="rail-label">Création du dossier</p>
-      <ol>
-        <li class="active"><span>1</span><div><b>Relevé de visite</b><small>Importer les données</small></div></li>
-        <li><span>2</span><div><b>Périmètre technique</b><small>Vérifier le relevé</small></div></li>
-        <li><span>3</span><div><b>Offre commerciale</b><small>Compléter les montants</small></div></li>
-        <li><span>4</span><div><b>Document final</b><small>Générer le PowerPoint</small></div></li>
-      </ol>
-      <div class="rail-note">
-        <span>FORMAT DE SORTIE</span>
-        <b>PowerPoint Europrod</b>
-        <small>16:9 · 10 diapositives éditables</small>
-      </div>
-    </aside>
-
     <section class="content">
       <div class="hero">
         <p class="eyebrow">Propositions commerciales / Nouveau dossier</p>
@@ -107,7 +92,7 @@ Supervision, année 1</textarea></label>
   </main>
 
   <div class="toast" id="toast" role="status"></div>
-  <script src="/vendor/jszip.min.js"></script>
-  <script type="module" src="/app.js"></script>
+  <script src="./vendor/jszip.min.js"></script>
+  <script type="module" src="./app.js"></script>
 </body>
 </html>
