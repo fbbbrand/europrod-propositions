@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#147f80">
+  <title>Générateur de propositions | Europrod</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='8' fill='%23081318'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%230ba9e0' stroke-width='8'/%3E%3Cpath d='M32 8v24h24' fill='none' stroke='%230ba9e0' stroke-width='8'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="Europrod, générateur de propositions">
+      <img class="brand-logo" src="/assets/europrod-technologies.png" alt="Europrod Technologies">
+    </a>
+    <div class="top-status">Générateur de propositions</div>
+  </header>
+
+  <main class="workspace">
+    <aside class="rail" aria-label="Étapes de préparation">
+      <p class="rail-label">Création du dossier</p>
+      <ol>
+        <li class="active"><span>1</span><div><b>Relevé de visite</b><small>Importer les données</small></div></li>
+        <li><span>2</span><div><b>Périmètre technique</b><small>Vérifier le relevé</small></div></li>
+        <li><span>3</span><div><b>Offre commerciale</b><small>Compléter les montants</small></div></li>
+        <li><span>4</span><div><b>Document final</b><small>Générer le PowerPoint</small></div></li>
+      </ol>
+      <div class="rail-note">
+        <span>FORMAT DE SORTIE</span>
+        <b>PowerPoint Europrod</b>
+        <small>16:9 · 10 diapositives éditables</small>
+      </div>
+    </aside>
+
+    <section class="content">
+      <div class="hero">
+        <p class="eyebrow">Propositions commerciales / Nouveau dossier</p>
+        <h1>Générer une proposition</h1>
+        <p>Importez un relevé de visite GTB, complétez les données commerciales et produisez un PowerPoint prêt pour validation.</p>
+      </div>
+
+      <section class="panel import-panel" aria-labelledby="import-title">
+        <div class="panel-head">
+          <div><p class="section-number">Étape 1</p><h2 id="import-title">Relevé de visite</h2></div>
+          <button class="text-button" id="demoButton" type="button">Charger l'exemple</button>
+        </div>
+        <label class="dropzone" id="dropzone" for="fileInput">
+          <input id="fileInput" type="file" accept="application/json,.json">
+          <span class="drop-icon" aria-hidden="true">.JSON</span>
+          <span><b>Importer l’export du carnet GTB</b><small>Déposez le fichier ici ou sélectionnez-le sur votre ordinateur.</small></span>
+          <span class="drop-action">Parcourir</span>
+        </label>
+        <div class="file-state" id="fileState" hidden>
+          <div><span class="file-check">✓</span><div><b id="fileName">Relevé chargé</b><small id="fileMeta"></small></div></div>
+          <button class="icon-button" id="clearButton" type="button" aria-label="Retirer le relevé">×</button>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="offer-title">
+        <div class="panel-head">
+          <div><p class="section-number">Étape 2</p><h2 id="offer-title">Paramètres de la proposition</h2></div>
+          <span class="mandatory">À valider avant envoi</span>
+        </div>
+        <form id="commercialForm">
+          <div class="form-grid">
+            <label><span>Client</span><input id="clientName" name="clientName" autocomplete="organization"></label>
+            <label><span>Groupe ou enseigne</span><input id="groupName" name="groupName"></label>
+            <label class="wide"><span>Nom du site</span><input id="siteName" name="siteName"></label>
+            <label><span>Type de site</span><select id="siteType" name="siteType"><option value="hotel">Hôtel</option><option value="offices">Bureaux</option><option value="industry">Industrie</option><option value="retail">Commerce</option><option value="other">Autre</option></select></label>
+            <label><span>Type d'offre</span><select id="offerType" name="offerType"><option>POC</option><option>Déploiement</option><option>Audit</option></select></label>
+            <label><span>Montant HT</span><div class="suffix"><input id="price" name="price" inputmode="decimal" placeholder="48 600"><em>€</em></div></label>
+            <label><span>Récurrence annuelle HT</span><div class="suffix"><input id="recurring" name="recurring" inputmode="decimal" placeholder="3 240"><em>€</em></div></label>
+            <label class="wide caution"><span>Classe de performance</span><select id="complianceClass" name="complianceClass"><option>À confirmer</option><option value="A">Classe A</option><option value="B">Classe B</option></select><small>Le formulaire ne décide jamais seul de la classe réglementaire.</small></label>
+            <label class="wide"><span>Éléments inclus, une ligne par poste</span><textarea id="includes" name="includes" rows="5">Matériel et coffrets
+Ingénierie et intégration
+Mise en service
+Capteurs et passerelles
+Supervision, année 1</textarea></label>
+            <label class="wide"><span>Réserve commerciale</span><textarea id="commercialNote" name="commercialNote" rows="3" placeholder="Hypothèses, limites du prix et conditions de validation"></textarea></label>
+          </div>
+        </form>
+      </section>
+
+      <section class="review-grid" aria-live="polite">
+        <article class="review-card summary-card">
+          <p class="section-number">Étape 3</p>
+          <h2>Données extraites</h2>
+          <dl id="summaryList"><div><dt>Site</dt><dd>En attente du relevé</dd></div></dl>
+        </article>
+        <article class="review-card quality-card">
+          <div class="quality-head">
+            <div><p class="section-number">Contrôle</p><h2>Complétude du dossier</h2></div>
+            <div class="quality-result"><b id="qualityScore">0/8</b><span id="qualityLabel">À compléter</span></div>
+          </div>
+          <p class="quality-caption" id="qualityCaption">Chargez un relevé pour afficher les contrôles.</p>
+          <ul id="issueList"><li>Chargez un relevé pour lancer le contrôle.</li></ul>
+        </article>
+      </section>
+
+      <footer class="actionbar">
+        <div><span id="actionStatus">Aucun relevé importé</span><small>Le document généré reste entièrement éditable.</small></div>
+        <button class="primary-button" id="generateButton" type="button" disabled>
+          <span>Générer le PowerPoint</span><b aria-hidden="true">PPTX</b>
+        </button>
+      </footer>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="/vendor/jszip.min.js"></script>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

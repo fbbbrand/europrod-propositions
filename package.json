@@ -1,0 +1,12 @@
+{
+  "name": "europrod-proposal-generator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Générateur de propositions commerciales Europrod à partir des exports du carnet de visite GTB.",
+  "scripts": {
+    "start": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/start.ps1",
+    "demo": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/start.ps1 -Demo",
+    "build": "node ./scripts/build-web.mjs"
+  }
+}
